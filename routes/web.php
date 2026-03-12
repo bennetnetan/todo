@@ -24,4 +24,4 @@ Route::middleware('auth')->group(function () {
     Route::resource('todos', App\Http\Controllers\TodoController::class);
 });
 
-require __DIR__.'/auth.php';
+require __DIR__ . '/auth.php';
