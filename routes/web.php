@@ -7,4 +7,7 @@ Route::get('/', function () {
     return redirect()->route('todos.index');
 });
 
-Route::resource('todos', TodoController::class);
+// protect todo routes behind authentication
+Route::middleware('auth')->group(function () {
+    Route::resource('todos', TodoController::class);
+});
