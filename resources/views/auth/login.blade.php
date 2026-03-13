@@ -43,5 +43,22 @@
                 {{ __('Log in') }}
             </x-primary-button>
         </div>
+
+        <div class="mt-6 border border-gray-200 dark:border-gray-700 rounded-md p-4 bg-white/60 dark:bg-gray-900/60">
+            <div class="flex items-center justify-between">
+                <div>
+                    <p class="text-sm font-semibold text-gray-800 dark:text-gray-100">Demo account</p>
+                    <p class="text-sm text-gray-600 dark:text-gray-400">Email: demo@example.com</p>
+                    <p class="text-sm text-gray-600 dark:text-gray-400">Password: password</p>
+                </div>
+                <button
+                    type="button"
+                    class="text-xs font-semibold text-indigo-700 dark:text-indigo-300 hover:underline"
+                    onclick="document.getElementById('email').value='demo@example.com';document.getElementById('password').value='password';document.getElementById('email').focus();"
+                >
+                    Fill &amp; use
+                </button>
+            </div>
+        </div>
     </form>
 </x-guest-layout>
