@@ -1,6 +1,6 @@
 <x-guest-layout>
-    <div class="todo-shell">
-        <div class="page-wrap" style="max-width: 1040px;">
+    <div class="todo-shell" style="min-height: 100vh;">
+        <div class="page-wrap" style="max-width: 1180px;">
             <header class="header" role="banner">
                 <div class="header-left">
                     <p class="eyebrow">Todo Demo</p>
