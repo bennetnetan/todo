@@ -12,7 +12,8 @@ Small authenticated todo app built with Laravel 12 and Breeze. Users can add, ed
 
 - Authenticated CRUD for todos with completion toggle
 - Priority and due date fields (optional) with color-coded badges and overdue/soon hints
-- Rich UI: light/dark theme toggle (persisted), search, status + priority filters, sort options, drag-and-drop reordering
+- Rich UI: light/dark theme toggle (persisted), search, status + priority filters, and sort options
+- Enhanced Interactivity: Smooth drag-and-drop reordering (optimized for zero flickering) and delete confirmation modals
 - Starter tasks seeded for first run
 - Breeze-powered auth scaffolding
 
