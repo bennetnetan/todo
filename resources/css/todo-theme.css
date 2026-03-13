@@ -346,6 +346,11 @@
 .todo-shell .task-card:hover { border-color: var(--border-strong); box-shadow: var(--shadow-md); transform: translateY(-1px); }
 .todo-shell .task-card.completed { opacity: .72; }
 .todo-shell .task-card.dragging { opacity: .5; border-style: dashed; background: var(--bg-surface-2); }
+.todo-shell #task-list.dragging-active .task-card {
+    animation: none !important;
+    transform: none !important;
+    transition: none !important;
+}
 .todo-shell .drag-handle { cursor: grab; color: var(--text-muted); font-size: .85rem; padding: .15rem .1rem; flex-shrink: 0; line-height: 1.6; opacity: 0; transition: opacity var(--transition); }
 .todo-shell .task-card:hover .drag-handle { opacity: 1; }
 .todo-shell .task-card.sortable-chosen { box-shadow: var(--shadow-lg); opacity: .9; cursor: grabbing; }

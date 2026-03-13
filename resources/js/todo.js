@@ -144,6 +144,7 @@ function initDragAndDrop() {
         
         draggingCard = card;
         card.classList.add('dragging');
+        listEl.classList.add('dragging-active');
         
         // Visual cue: ghost image (optional, default works)
         e.dataTransfer.effectAllowed = 'move';
@@ -153,6 +154,7 @@ function initDragAndDrop() {
     listEl.addEventListener('dragend', (e) => {
         const card = e.target.closest('.task-card');
         if (card) card.classList.remove('dragging');
+        listEl.classList.remove('dragging-active');
         draggingCard = null;
     });
 
@@ -160,13 +162,17 @@ function initDragAndDrop() {
         e.preventDefault(); // allow drop
         e.dataTransfer.dropEffect = 'move';
 
+        if (!draggingCard) return;
+
         const afterElement = getDragAfterElement(listEl, e.clientY);
-        if (draggingCard) {
-            if (afterElement == null) {
+        
+        // Prevent redundant DOM moves
+        if (afterElement == null) {
+            if (listEl.lastElementChild !== draggingCard) {
                 listEl.appendChild(draggingCard);
-            } else {
-                listEl.insertBefore(draggingCard, afterElement);
             }
+        } else if (draggingCard !== afterElement && draggingCard.nextElementSibling !== afterElement) {
+            listEl.insertBefore(draggingCard, afterElement);
         }
     });
 }
