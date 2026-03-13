@@ -132,7 +132,61 @@ function initDeleteModal() {
     });
 }
 
+function initDragAndDrop() {
+    const listEl = document.getElementById('task-list');
+    if (!listEl) return;
+
+    let draggingCard = null;
+
+    listEl.addEventListener('dragstart', (e) => {
+        const card = e.target.closest('.task-card');
+        if (!card) return;
+        
+        draggingCard = card;
+        card.classList.add('dragging');
+        
+        // Visual cue: ghost image (optional, default works)
+        e.dataTransfer.effectAllowed = 'move';
+        e.dataTransfer.setData('text/plain', card.dataset.id); // for safety
+    });
+
+    listEl.addEventListener('dragend', (e) => {
+        const card = e.target.closest('.task-card');
+        if (card) card.classList.remove('dragging');
+        draggingCard = null;
+    });
+
+    listEl.addEventListener('dragover', (e) => {
+        e.preventDefault(); // allow drop
+        e.dataTransfer.dropEffect = 'move';
+
+        const afterElement = getDragAfterElement(listEl, e.clientY);
+        if (draggingCard) {
+            if (afterElement == null) {
+                listEl.appendChild(draggingCard);
+            } else {
+                listEl.insertBefore(draggingCard, afterElement);
+            }
+        }
+    });
+}
+
+function getDragAfterElement(container, y) {
+    const draggableElements = [...container.querySelectorAll('.task-card:not(.dragging)')];
+
+    return draggableElements.reduce((closest, child) => {
+        const box = child.getBoundingClientRect();
+        const offset = y - box.top - box.height / 2;
+        if (offset < 0 && offset > closest.offset) {
+            return { offset: offset, element: child };
+        } else {
+            return closest;
+        }
+    }, { offset: Number.NEGATIVE_INFINITY }).element;
+}
+
 document.addEventListener('DOMContentLoaded', () => {
     initFilters();
     initDeleteModal();
+    initDragAndDrop();
 });
