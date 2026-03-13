@@ -3,7 +3,7 @@ function initAccountMenu() {
     if (!menus.length) return;
 
     menus.forEach(menu => {
-        const toggle = menu.querySelector('[data-account-toggle]');
+        const toggles = menu.querySelectorAll('[data-account-toggle]');
         const panel = menu.querySelector('[data-account-panel]');
         let open = false;
 
@@ -13,9 +13,11 @@ function initAccountMenu() {
             if (panel) panel.hidden = !state;
         };
 
-        toggle?.addEventListener('click', (e) => {
-            e.stopPropagation();
-            setOpen(!open);
+        toggles.forEach(toggle => {
+            toggle.addEventListener('click', (e) => {
+                e.stopPropagation();
+                setOpen(!open);
+            });
         });
 
         document.addEventListener('click', (e) => {
@@ -27,3 +29,5 @@ function initAccountMenu() {
         });
     });
 }
+
+document.addEventListener('DOMContentLoaded', initAccountMenu);
