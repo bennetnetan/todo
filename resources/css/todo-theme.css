@@ -152,9 +152,9 @@
     gap: .35rem;
     padding: .5rem 1rem;
     border-radius: 100px;
-    border: 1.5px solid var(--border);
-    background: var(--bg-surface);
-    color: var(--text-secondary);
+    border: 1.5px solid var(--border-strong);
+    background: color-mix(in srgb, var(--bg-surface) 80%, var(--accent-light) 20%);
+    color: var(--text-primary);
     font-weight: 600;
     text-decoration: none;
     transition: all var(--transition);
@@ -163,6 +163,7 @@
 .todo-shell .btn-secondary:hover {
     border-color: var(--accent);
     color: var(--accent);
+    box-shadow: 0 4px 12px color-mix(in srgb, var(--accent) 18%, transparent);
 }
 
 .todo-shell .btn-danger {
