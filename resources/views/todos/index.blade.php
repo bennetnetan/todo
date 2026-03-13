@@ -29,7 +29,7 @@
                 </div>
             </header>
 
-            {{-- ── Stats ── --}}
+            {{-- ── Stats --}}
             <div class="stats-grid" role="region" aria-label="Task summary">
                 <div class="stat-card">
                     <p class="stat-label">Open</p>
@@ -48,7 +48,7 @@
                 </div>
             </div>
 
-            {{-- ── Toolbar (Search + Filter + Sort) ── --}}
+            {{-- ── Toolbar (Search + Filter + Sort) --}}
             @if ($todos->count())
                 <div class="toolbar" role="search" aria-label="Filter and sort tasks">
                     <div class="search-wrap">
@@ -64,16 +64,16 @@
                     </div>
 
                     <div class="filter-group" role="group" aria-label="Filter by status">
-                        <button class="chip active" data-filter="all"       aria-pressed="true">All</button>
-                        <button class="chip"        data-filter="open"      aria-pressed="false">Open</button>
-                        <button class="chip"        data-filter="completed" aria-pressed="false">Done</button>
+                        <button class="chip active" data-filter="all" data-status-btn aria-pressed="true">All</button>
+                        <button class="chip"        data-filter="open" data-status-btn aria-pressed="false">Open</button>
+                        <button class="chip"        data-filter="completed" data-status-btn aria-pressed="false">Done</button>
                     </div>
 
                     <div class="filter-group" role="group" aria-label="Filter by priority">
-                        <button class="chip active" data-priority="all"    aria-pressed="true">Any priority</button>
-                        <button class="chip"        data-priority="high"   aria-pressed="false">🔴 High</button>
-                        <button class="chip"        data-priority="medium" aria-pressed="false">🟡 Medium</button>
-                        <button class="chip"        data-priority="low"    aria-pressed="false">🟢 Low</button>
+                        <button class="chip active" data-priority="all"    data-priority-btn aria-pressed="true">Any priority</button>
+                        <button class="chip"        data-priority="high"   data-priority-btn aria-pressed="false">🔴 High</button>
+                        <button class="chip"        data-priority="medium" data-priority-btn aria-pressed="false">🟡 Medium</button>
+                        <button class="chip"        data-priority="low"    data-priority-btn aria-pressed="false">🟢 Low</button>
                     </div>
 
                     <select class="sort-select" id="sort-select" aria-label="Sort tasks">
