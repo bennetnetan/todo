@@ -96,3 +96,43 @@ function initFilters() {
     searchInp && searchInp.addEventListener('input', applyFilters);
     sortSel && sortSel.addEventListener('change', applyFilters);
 }
+
+function initDeleteModal() {
+    const backdrop = document.getElementById('delete-backdrop');
+    const form = document.getElementById('delete-form');
+    const cancelBtn = document.getElementById('delete-cancel');
+    const deleteBtns = document.querySelectorAll('[data-delete-id]');
+
+    if (!backdrop || !form) return;
+
+    const close = () => {
+        backdrop.hidden = true;
+        form.action = '';
+    };
+
+    deleteBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+            const id = btn.dataset.deleteId;
+            // Assumes standard resource route: /todos/{id}
+            form.action = `/todos/${id}`;
+            backdrop.hidden = false;
+        });
+    });
+
+    cancelBtn && cancelBtn.addEventListener('click', close);
+    
+    // Close on click outside
+    backdrop.addEventListener('click', (e) => {
+        if (e.target === backdrop) close();
+    });
+    
+    // Close on Escape key
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && !backdrop.hidden) close();
+    });
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+    initFilters();
+    initDeleteModal();
+});
