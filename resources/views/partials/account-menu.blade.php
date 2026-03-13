@@ -2,9 +2,6 @@
     <button type="button" class="btn-secondary" data-account-toggle>
         <span class="text-sm font-semibold text-slate-700 dark:text-slate-200">{{ Auth::user()->name ?? 'Account' }}</span>
     </button>
-    <button type="button" class="btn-secondary" data-account-toggle>
-        Test menu
-    </button>
     <div class="menu-panel" data-account-panel hidden>
         <div class="text-sm text-slate-600 dark:text-slate-300 mb-2">
             <div class="font-semibold">{{ Auth::user()->name ?? '' }}</div>

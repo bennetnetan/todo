@@ -64,7 +64,8 @@ function initFilters() {
         if (noResults) noResults.style.display = visible.length === 0 ? 'block' : 'none';
     };
 
-    const statusBtns = document.querySelectorAll('[data-status-btn]');
+    // Only bind to toolbar buttons, not task cards
+    const statusBtns = document.querySelectorAll('.toolbar [data-status-btn]');
     statusBtns.forEach(btn => {
         btn.addEventListener('click', () => {
             statusBtns.forEach(b => {
@@ -78,7 +79,7 @@ function initFilters() {
         });
     });
 
-    const priorityBtns = document.querySelectorAll('[data-priority-btn]');
+    const priorityBtns = document.querySelectorAll('.toolbar [data-priority-btn]');
     priorityBtns.forEach(btn => {
         btn.addEventListener('click', () => {
             priorityBtns.forEach(b => {
