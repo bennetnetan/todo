@@ -87,8 +87,7 @@ function initFilters() {
             });
             btn.classList.add('active');
             btn.setAttribute('aria-pressed', 'true');
-            activePriority = btn.dataset.pri
-ority;
+            activePriority = btn.dataset.priority;
             applyFilters();
         });
     });
