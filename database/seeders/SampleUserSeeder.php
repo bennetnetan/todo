@@ -30,6 +30,8 @@ class SampleUserSeeder extends Seeder
                 [
                     'title' => 'Welcome to the demo',
                     'description' => 'Feel free to add, edit, complete, or delete tasks.',
+                    'priority' => 'medium',
+                    'due_date' => now()->addDays(3),
                     'is_completed' => false,
                     'created_at' => now(),
                     'updated_at' => now(),
@@ -37,6 +39,8 @@ class SampleUserSeeder extends Seeder
                 [
                     'title' => 'Mark me done',
                     'description' => 'Use the Complete button to toggle status.',
+                    'priority' => 'high',
+                    'due_date' => now()->addDay(),
                     'is_completed' => false,
                     'created_at' => now(),
                     'updated_at' => now(),
@@ -44,6 +48,8 @@ class SampleUserSeeder extends Seeder
                 [
                     'title' => 'Edit this task',
                     'description' => 'Try editing the title or description.',
+                    'priority' => 'low',
+                    'due_date' => null,
                     'is_completed' => false,
                     'created_at' => now(),
                     'updated_at' => now(),

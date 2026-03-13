@@ -10,5 +10,12 @@ class Todo extends Model
         'title',
         'description',
         'is_completed',
+        'priority',
+        'due_date',
+    ];
+
+    protected $casts = [
+        'is_completed' => 'boolean',
+        'due_date' => 'date',
     ];
 }

@@ -24,6 +24,25 @@
             </label>
             <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline focus:border-blue-500 transition" id="title" name="title" type="text" placeholder="E.g. Buy Groceries" value="{{ old('title') }}" required autofocus>
         </div>
+
+        <div class="mb-4">
+            <label class="block text-gray-700 text-sm font-bold mb-2" for="priority">
+                Priority (optional)
+            </label>
+            <select id="priority" name="priority" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline focus:border-blue-500 transition">
+                <option value="none" {{ old('priority', 'none') === 'none' ? 'selected' : '' }}>None</option>
+                <option value="high" {{ old('priority') === 'high' ? 'selected' : '' }}>High</option>
+                <option value="medium" {{ old('priority') === 'medium' ? 'selected' : '' }}>Medium</option>
+                <option value="low" {{ old('priority') === 'low' ? 'selected' : '' }}>Low</option>
+            </select>
+        </div>
+
+        <div class="mb-4">
+            <label class="block text-gray-700 text-sm font-bold mb-2" for="due_date">
+                Due date (optional)
+            </label>
+            <input id="due_date" type="date" name="due_date" value="{{ old('due_date') }}" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline focus:border-blue-500 transition">
+        </div>
         
         <div class="mb-6">
             <label class="block text-gray-700 text-sm font-bold mb-2" for="description">
