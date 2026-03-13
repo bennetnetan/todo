@@ -9,7 +9,7 @@
                 <div class="header-actions">
                     <a href="{{ route('dashboard') }}" class="btn-secondary">← Dashboard</a>
                     <button class="theme-btn" id="theme-toggle" aria-label="Toggle colour theme" title="Toggle light / dark mode">
-                        <span id"theme-icon">☀️</span>
+                        <span id="theme-icon">☀️</span>
                     </button>
                     @auth
                         @include('partials.account-menu')
