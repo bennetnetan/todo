@@ -1,26 +1,31 @@
 <x-app-layout>
-    <x-slot name="header">
-        <h2 class="font-semibold text-xl text-gray-800 dark:text-gray-200 leading-tight">
-            {{ __('Profile') }}
-        </h2>
-    </x-slot>
+    <div class="todo-shell" style="min-height: 100vh;">
+        <div class="page-wrap" style="max-width: 900px;">
+            <header class="header" role="banner">
+                <div class="header-left">
+                    <p class="eyebrow">Account</p>
+                    <h1>Manage your <em>profile</em></h1>
+                </div>
+                <div class="header-actions">
+                    <button class="theme-btn" id="theme-toggle" aria-label="Toggle colour theme" title="Toggle light / dark mode">
+                        <span id="theme-icon">☀️</span>
+                    </button>
+                    @auth
+                        @include('partials.account-menu')
+                    @endauth
+                </div>
+            </header>
 
-    <div class="py-12">
-        <div class="max-w-7xl mx-auto sm:px-6 lg:px-8 space-y-6">
-            <div class="p-4 sm:p-8 bg-white dark:bg-gray-800 shadow sm:rounded-lg">
-                <div class="max-w-xl">
+            <div class="space-y-6">
+                <div class="form-card">
                     @include('profile.partials.update-profile-information-form')
                 </div>
-            </div>
 
-            <div class="p-4 sm:p-8 bg-white dark:bg-gray-800 shadow sm:rounded-lg">
-                <div class="max-w-xl">
+                <div class="form-card">
                     @include('profile.partials.update-password-form')
                 </div>
-            </div>
 
-            <div class="p-4 sm:p-8 bg-white dark:bg-gray-800 shadow sm:rounded-lg">
-                <div class="max-w-xl">
+                <div class="form-card">
                     @include('profile.partials.delete-user-form')
                 </div>
             </div>
