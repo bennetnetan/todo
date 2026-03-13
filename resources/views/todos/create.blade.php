@@ -1,8 +1,6 @@
-@extends('layouts.app')
-
-@section('content')
-    <div class="todo-shell">
-        <div class="page-wrap">
+<x-guest-layout>
+    <div class="todo-shell" style="min-height: 100vh;">
+        <div class="page-wrap" style="max-width: 720px;">
             <header class="header" role="banner">
                 <div class="header-left">
                     <p class="eyebrow">New Task</p>
@@ -13,6 +11,9 @@
                         <span id="theme-icon">☀️</span>
                     </button>
                     <a href="{{ route('todos.index') }}" class="btn-secondary">← Back to list</a>
+                    @auth
+                        @include('partials.account-menu')
+                    @endauth
                 </div>
             </header>
 
@@ -65,4 +66,4 @@
             </form>
         </div>
     </div>
-@endsection
+</x-guest-layout>

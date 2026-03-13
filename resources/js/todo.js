@@ -129,6 +129,7 @@ document.addEventListener('DOMContentLoaded', () => {
     initFilters();
     initSortable();
     initDeleteModal();
+    initAccountMenu();
 });
 
 function initDeleteModal() {
@@ -162,5 +163,27 @@ function initDeleteModal() {
     backdrop.addEventListener('click', (e) => { if (e.target === backdrop) close(); });
     document.addEventListener('keydown', (e) => {
         if (!backdrop.hidden && e.key === 'Escape') close();
+    });
+}
+
+function initAccountMenu() {
+    const menu = document.querySelector('.account-menu');
+    if (!menu) return;
+    const toggle = document.getElementById('account-menu-toggle');
+    const panel = document.getElementById('account-menu-panel');
+    let open = false;
+
+    const setOpen = (state) => {
+        open = state;
+        menu.dataset.open = state ? 'true' : 'false';
+        if (panel) panel.hidden = !state;
+    };
+
+    toggle?.addEventListener('click', () => setOpen(!open));
+    document.addEventListener('click', (e) => {
+        if (!menu.contains(e.target)) setOpen(false);
+    });
+    document.addEventListener('keydown', (e) => {
+        if (open && e.key === 'Escape') setOpen(false);
     });
 }

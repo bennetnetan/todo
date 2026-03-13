@@ -177,6 +177,24 @@
     border-color: var(--rose);
 }
 
+.todo-shell .account-menu { position: relative; }
+.todo-shell .account-menu .menu-panel {
+    position: absolute;
+    top: 110%;
+    right: 0;
+    background: var(--bg-surface);
+    border: 1.5px solid var(--border);
+    border-radius: 12px;
+    box-shadow: var(--shadow-md);
+    padding: .75rem;
+    min-width: 200px;
+    z-index: 40;
+}
+.todo-shell .account-menu .menu-actions { display: flex; flex-direction: column; gap: .35rem; }
+.todo-shell .account-menu .menu-link { display: inline-flex; align-items: center; gap: .35rem; padding: .35rem .5rem; border-radius: 10px; color: var(--text-primary); text-decoration: none; }
+.todo-shell .account-menu .menu-link:hover { background: var(--bg-surface-2); color: var(--accent); }
+.todo-shell .account-menu[data-open=\"false\"] .menu-panel { display: none; }
+
 .todo-shell .modal-backdrop {
     position: fixed;
     inset: 0;

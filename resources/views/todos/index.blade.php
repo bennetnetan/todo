@@ -23,6 +23,9 @@
                         <span aria-hidden="true">＋</span>
                         New Task
                     </a>
+                    @auth
+                        @include('partials.account-menu')
+                    @endauth
                 </div>
             </header>
 
@@ -85,7 +88,7 @@
                 </div>
             @endif
 
-            {{-- ── Task List ── --}}
+            {{-- ── Task List --}}
             @if ($todos->count())
                 <main>
                     <ul id="task-list" role="list" aria-label="Task list" aria-live="polite">
@@ -191,6 +194,7 @@
             @endif
 
         </div>
+
         {{-- Delete confirmation modal --}}
         <div class="modal-backdrop" id="delete-backdrop" hidden>
             <div class="modal">
