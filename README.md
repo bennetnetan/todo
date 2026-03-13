@@ -11,6 +11,8 @@ Small authenticated todo app built with Laravel 12 and Breeze. Users can add, ed
 ## Features
 
 - Authenticated CRUD for todos with completion toggle
+- Priority and due date fields (optional) with color-coded badges and overdue/soon hints
+- Rich UI: light/dark theme toggle (persisted), search, status + priority filters, sort options, drag-and-drop reordering
 - Starter tasks seeded for first run
 - Breeze-powered auth scaffolding
 
@@ -22,6 +24,13 @@ Small authenticated todo app built with Laravel 12 and Breeze. Users can add, ed
 4. Generate app key: `php artisan key:generate`.
 5. Run migrations and seed the demo data: `php artisan migrate --seed`.
 6. Start the dev server: `php artisan serve` and visit `http://localhost:8000`.
+
+## Frontend Build
+
+- Dev server with live reload: `npm run dev`
+- Production build: `npm run build`
+
+The shared theme lives in `resources/css/todo-theme.css` and shared interactivity (theme toggle, filters, modal, drag/drop) in `resources/js/theme.js` and `resources/js/todo.js`.
 
 ## Seeding Demo Data
 
