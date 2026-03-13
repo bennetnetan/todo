@@ -8,3 +8,4 @@ Alpine.start();
 
 import './theme';
 import './todo';
+import './account-menu';
