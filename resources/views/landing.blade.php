@@ -1,6 +1,4 @@
-@extends('layouts.guest')
-
-@section('content')
+<x-guest-layout>
     <div class="todo-shell">
         <div class="page-wrap" style="max-width: 1040px;">
             <header class="header" role="banner">
@@ -64,4 +62,4 @@
             </div>
         </div>
     </div>
-@endsection
+</x-guest-layout>
