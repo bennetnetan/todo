@@ -196,6 +196,8 @@
     box-shadow: var(--shadow-lg);
 }
 
+.todo-shell .modal-backdrop[hidden] { display: none !important; }
+
 .todo-shell .modal-header { margin-bottom: .75rem; }
 .todo-shell .modal-eyebrow { text-transform: uppercase; letter-spacing: .1em; font-weight: 700; font-size: .72rem; color: var(--text-muted); }
 .todo-shell .modal-title { font-family: 'Fraunces', serif; font-size: 1.3rem; color: var(--text-primary); }
