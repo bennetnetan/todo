@@ -11,7 +11,7 @@ Route::get('/', function () {
 });
 
 Route::get('/dashboard', function () {
-    return view('dashboard');
+    return redirect()->route('todos.index');
 })->middleware(['auth', 'verified'])->name('dashboard');
 
 // application routes protected by auth
