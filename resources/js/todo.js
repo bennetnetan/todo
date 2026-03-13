@@ -128,4 +128,39 @@ function initSortable() {
 document.addEventListener('DOMContentLoaded', () => {
     initFilters();
     initSortable();
+    initDeleteModal();
 });
+
+function initDeleteModal() {
+    const backdrop = document.getElementById('delete-backdrop');
+    if (!backdrop) return;
+
+    const form = document.getElementById('delete-form');
+    const titleEl = document.getElementById('delete-title');
+    const cancelBtn = document.getElementById('delete-cancel');
+
+    const open = (id, title) => {
+        form.action = `/todos/${id}`;
+        titleEl.textContent = `Delete “${title}”`;
+        backdrop.hidden = false;
+        backdrop.style.display = 'grid';
+        cancelBtn.focus();
+    };
+
+    const close = () => {
+        backdrop.hidden = true;
+        backdrop.style.display = 'none';
+    };
+
+    document.querySelectorAll('[data-delete-id]').forEach(btn => {
+        btn.addEventListener('click', () => {
+            open(btn.dataset.deleteId, btn.dataset.deleteTitle || 'this task');
+        });
+    });
+
+    cancelBtn?.addEventListener('click', close);
+    backdrop.addEventListener('click', (e) => { if (e.target === backdrop) close(); });
+    document.addEventListener('keydown', (e) => {
+        if (!backdrop.hidden && e.key === 'Escape') close();
+    });
+}

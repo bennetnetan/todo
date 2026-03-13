@@ -165,6 +165,43 @@
     color: var(--accent);
 }
 
+.todo-shell .btn-danger {
+    background: var(--rose);
+    color: #fff;
+    border-color: color-mix(in srgb, var(--rose) 40%, transparent);
+    box-shadow: 0 4px 14px color-mix(in srgb, var(--rose) 30%, transparent);
+}
+
+.todo-shell .btn-danger:hover {
+    background: color-mix(in srgb, var(--rose) 90%, #000);
+    border-color: var(--rose);
+}
+
+.todo-shell .modal-backdrop {
+    position: fixed;
+    inset: 0;
+    background: color-mix(in srgb, #0b0c10 70%, transparent);
+    display: grid;
+    place-items: center;
+    padding: 1rem;
+    z-index: 50;
+}
+
+.todo-shell .modal {
+    background: var(--bg-surface);
+    border: 1.5px solid var(--border);
+    border-radius: calc(var(--radius) + 4px);
+    padding: 1.5rem;
+    width: min(420px, 100%);
+    box-shadow: var(--shadow-lg);
+}
+
+.todo-shell .modal-header { margin-bottom: .75rem; }
+.todo-shell .modal-eyebrow { text-transform: uppercase; letter-spacing: .1em; font-weight: 700; font-size: .72rem; color: var(--text-muted); }
+.todo-shell .modal-title { font-family: 'Fraunces', serif; font-size: 1.3rem; color: var(--text-primary); }
+.todo-shell .modal-body { color: var(--text-secondary); font-size: .92rem; line-height: 1.5; margin-bottom: 1.25rem; }
+.todo-shell .modal-actions { display: flex; justify-content: flex-end; gap: .6rem; }
+
 .todo-shell .stats-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);

@@ -163,12 +163,13 @@
                                         ✎ Edit
                                     </a>
 
-                                    <form action="{{ route('todos.destroy', $todo) }}" method="POST" aria-label="Delete task: {{ $todo->title }}"
-                                          onsubmit="return confirm('Delete \'{{ addslashes($todo->title) }}\'? This cannot be undone.')">
-                                        @csrf
-                                        @method('DELETE')
-                                        <button type="submit" class="act-btn delete">✕ Delete</button>
-                                    </form>
+                                    <button type="button"
+                                            class="act-btn delete"
+                                            data-delete-id="{{ $todo->id }}"
+                                            data-delete-title="{{ $todo->title }}"
+                                            aria-label="Delete task: {{ $todo->title }}">
+                                        ✕ Delete
+                                    </button>
                                 </div>
                             </li>
                         @endforeach
@@ -190,5 +191,22 @@
             @endif
 
         </div>
+        {{-- Delete confirmation modal --}}
+        <div class="modal-backdrop" id="delete-backdrop" hidden>
+            <div class="modal">
+                <div class="modal-header">
+                    <p class="modal-eyebrow">Confirm deletion</p>
+                    <h3 class="modal-title" id="delete-title">Delete task</h3>
+                </div>
+                <p class="modal-body">This action cannot be undone. Are you sure you want to delete this task?</p>
+                <form id="delete-form" method="POST" class="modal-actions">
+                    @csrf
+                    @method('DELETE')
+                    <button type="button" class="btn-secondary" id="delete-cancel">Cancel</button>
+                    <button type="submit" class="btn-primary btn-danger">Delete</button>
+                </form>
+            </div>
+        </div>
+
     </div>
 @endsection
